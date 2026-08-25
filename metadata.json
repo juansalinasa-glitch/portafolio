@@ -1,0 +1,6 @@
+{
+  "name": "Portafolio Juan Salinas",
+  "description": "Portafolio interactivo de Juan Salinas, estudiante de Ingeniería Civil en Informática (PUCV) - Ingeniería Estructural en Código, competencias técnicas, visualizador de algoritmos y contacto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
