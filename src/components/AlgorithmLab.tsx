@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Shuffle, Zap, Activity, CheckCircle2, ChevronRight, Binary, ArrowRight } from 'lucide-react';
 
+const SEARCH_TARGETS = [8, 24, 42, 67, 91, 50];
+
 export const AlgorithmLab: React.FC = () => {
   const [activeTool, setActiveTool] = useState<'sorting' | 'search' | 'stack' | 'pseint'>('sorting');
   
@@ -194,6 +196,13 @@ FinAlgoritmo`);
     computeSearchSteps(searchTarget);
   }, [searchTarget]);
 
+  const handleSearchTargetClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const value = parseInt(e.currentTarget.value, 10);
+    if (!isNaN(value)) {
+      setSearchTarget(value);
+    }
+  };
+
   // Transpile PSeInt to Python
   const getPythonEquivalent = (code: string) => {
     return `# Código generado desde PSeInt AST
@@ -381,10 +390,11 @@ if __name__ == "__main__":
             <div className="flex items-center gap-3">
               <label className="text-xs font-mono text-slate-400">Seleccionar objetivo:</label>
               <div className="flex gap-1.5 flex-wrap">
-                {[8, 24, 42, 67, 91, 50].map((t) => (
+                {SEARCH_TARGETS.map((t) => (
                   <button
                     key={t}
-                    onClick={() => setSearchTarget(t)}
+                    value={t}
+                    onClick={handleSearchTargetClick}
                     className={`px-3 py-1 rounded-xl text-xs font-mono transition-all cursor-pointer ${
                       searchTarget === t ? 'bg-white text-black font-bold shadow-md shadow-white/10' : 'backdrop-blur-md bg-white/[0.04] text-slate-300 hover:text-white border border-white/10'
                     }`}
