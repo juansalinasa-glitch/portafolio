@@ -1,3 +1,2 @@
 /// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
-/// <reference types="jest" />
+/// <reference types="vitest/globals" />
