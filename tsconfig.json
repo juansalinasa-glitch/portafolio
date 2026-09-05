@@ -9,6 +9,11 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "types": [
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "jest"
+    ],
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "isolatedModules": true,
@@ -22,5 +27,6 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": ["src", "vitest-env.d.ts"]
 }
