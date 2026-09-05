@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { ACADEMIC_COURSES } from '../data/portfolioData';
 import { AcademicCourse } from '../types';
 import { GraduationCap, BookCheck, Clock, Bookmark, Layers, Award, CheckCircle2, ChevronRight } from 'lucide-react';
@@ -6,6 +6,16 @@ import { GraduationCap, BookCheck, Clock, Bookmark, Layers, Award, CheckCircle2,
 export const CurriculumView: React.FC = () => {
   const [selectedSemester, setSelectedSemester] = useState<number | 'all'>('all');
   const [selectedCourse, setSelectedCourse] = useState<AcademicCourse | null>(null);
+
+  const handleCourseClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const code = e.currentTarget.getAttribute('data-code');
+    if (code) {
+      const course = ACADEMIC_COURSES.find(c => c.code === code);
+      if (course) {
+        setSelectedCourse(course);
+      }
+    }
+  }, []);
 
   const filteredCourses = selectedSemester === 'all'
     ? ACADEMIC_COURSES
@@ -105,7 +115,8 @@ export const CurriculumView: React.FC = () => {
         {filteredCourses.map((course) => (
           <div
             key={course.code}
-            onClick={() => setSelectedCourse(course)}
+            data-code={course.code}
+            onClick={handleCourseClick}
             className="backdrop-blur-xl bg-white/[0.04] hover:bg-white/[0.08] p-6 rounded-3xl border border-white/10 hover:border-white/25 transition-all cursor-pointer flex flex-col justify-between group shadow-xl hover:-translate-y-0.5"
           >
             <div>
