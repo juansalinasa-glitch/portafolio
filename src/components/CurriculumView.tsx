@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { ACADEMIC_COURSES } from '../data/portfolioData';
 import { AcademicCourse } from '../types';
-import { GraduationCap, BookCheck, Clock, Bookmark, Layers, Award, CheckCircle2, ChevronRight } from 'lucide-react';
+import { GraduationCap, Clock, Bookmark, Layers, Award, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export const CurriculumView: React.FC = () => {
   const [selectedSemester, setSelectedSemester] = useState<number | 'all'>('all');
