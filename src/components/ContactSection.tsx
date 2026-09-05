@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Check, Copy, MessageSquare, Linkedin, Github, Twitter, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
+import { Mail, Send, Check, Copy, Linkedin, Github, Twitter, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 import { ContactFormData } from '../types';
 
 interface ContactSectionProps {
