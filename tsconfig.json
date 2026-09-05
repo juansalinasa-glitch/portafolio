@@ -23,6 +23,7 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "types": [
+      "node",
       "vitest/globals",
       "@testing-library/jest-dom/vitest"
     ]

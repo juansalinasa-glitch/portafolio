@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { SkillModal } from './SkillModal';
 import { Competency } from '../types';
@@ -58,10 +58,9 @@ describe('SkillModal', () => {
     const onClose = vi.fn();
     render(<SkillModal competency={mockCompetency} onClose={onClose} />);
 
-    // There are two close buttons (Header and Footer)
-    const closeButtons = screen.getAllByRole('button');
-    // Header Close Button
-    fireEvent.click(closeButtons[0]);
+    const header = screen.getByText('Python Programming').closest('div')?.parentElement as HTMLElement;
+    const headerCloseButton = within(header).getByRole('button');
+    fireEvent.click(headerCloseButton);
     expect(onClose).toHaveBeenCalledTimes(1);
 
     // Footer Close Button
