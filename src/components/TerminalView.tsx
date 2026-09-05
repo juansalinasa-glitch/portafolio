@@ -229,7 +229,9 @@ export const TerminalView: React.FC = () => {
           />
           <button
             type="submit"
-            className="p-1.5 rounded bg-[#991b1b] hover:bg-[#b91c1c] text-white transition-colors"
+            aria-label="Ejecutar comando"
+            title="Ejecutar comando"
+            className="p-1.5 rounded bg-[#991b1b] hover:bg-[#b91c1c] text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
           >
             <CornerDownLeft size={14} />
           </button>

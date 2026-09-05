@@ -64,7 +64,9 @@ export const SkillModal: React.FC<SkillModalProps> = ({ competency, onClose }) =
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Cerrar modal"
+            title="Cerrar modal"
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
             <X size={20} />
           </button>
