@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ACADEMIC_COURSES } from '../data/portfolioData';
 import { AcademicCourse } from '../types';
 import { GraduationCap, BookCheck, Clock, Bookmark, Layers, Award, CheckCircle2, ChevronRight } from 'lucide-react';
@@ -7,9 +7,9 @@ export const CurriculumView: React.FC = () => {
   const [selectedSemester, setSelectedSemester] = useState<number | 'all'>('all');
   const [selectedCourse, setSelectedCourse] = useState<AcademicCourse | null>(null);
 
-  const filteredCourses = selectedSemester === 'all'
+  const filteredCourses = useMemo(() => selectedSemester === 'all'
     ? ACADEMIC_COURSES
-    : ACADEMIC_COURSES.filter(c => c.semester === selectedSemester);
+    : ACADEMIC_COURSES.filter(c => c.semester === selectedSemester), [selectedSemester]);
 
   const getStatusBadge = (status: AcademicCourse['status']) => {
     switch (status) {
